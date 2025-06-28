@@ -1,0 +1,142 @@
+[
+    {
+        "role": "EMPLOYEE",
+        "menus": [
+            {
+                "name": "Home",
+                "icon": "",
+                "link": "/home"
+            },
+            {
+                "name": "Profile",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Project",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Employee",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Complaint",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Collaboration",
+                "icon": "",
+                "link": ""
+            }
+        ]
+    },
+    {
+        "role": "CLERK",
+        "menus": [
+            {
+                "name": "Home",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Profile",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Project",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Employee",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Complaint",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Collaboration",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Logout",
+                "icon": "",
+                "link": ""
+            }
+        ]
+    },
+    {
+        "role": "HOD",
+        "menus": [
+            {
+                "name": "Home",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Profile",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Project",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Employee",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Complaint",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Collaboration",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Logout",
+                "icon": "",
+                "link": ""
+            }
+        ]
+    },
+    {
+        "role": "CITIZEN",
+        "menus": [
+            {
+                "name": "Home",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Profile",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Complaint",
+                "icon": "",
+                "link": ""
+            },
+            {
+                "name": "Logout",
+                "icon": "",
+                "link": ""
+            }
+        ]
+    }
+]
