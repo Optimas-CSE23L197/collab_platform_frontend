@@ -1,0 +1,22 @@
+[
+    {
+        "title": "My Rooms",
+        "count": 25,
+        "icon": "FaRegBuilding"
+    },
+    {
+        "title": "Department Tasks",
+        "count": 10,
+        "icon": "GrDocumentText"
+    },
+    {
+        "title": "Department Members",
+        "count": 5,
+        "icon": "FaPeopleGroup"
+    },
+    {
+        "title": "Pending Approvals",
+        "count": 3,
+        "icon": "FaRegClock"
+    }
+]

@@ -38,9 +38,9 @@ function Sidebar() {
             {/* Top Section */}
             <div className="p-4">
                 <div className="flex justify-between items-center mb-4">
-                    {!collapsed && <h1 className="text-xl font-bold text-indigo-600">COllabouration</h1>}
+                    {!collapsed && <h1 className="text-xl font-bold text-indigo-600">Collabouration</h1>}
                     <button onClick={toggleSidebar} aria-label="Toggle sidebar">
-                        <GiHamburgerMenu className="text-[26px] text-indigo-600" />
+                        <GiHamburgerMenu className="text-[26px] text-indigo-600 cursor-pointer" />
                     </button>
                 </div>
 
