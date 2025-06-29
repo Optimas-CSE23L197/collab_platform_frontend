@@ -4,32 +4,32 @@
         "menus": [
             {
                 "name": "Home",
-                "icon": "",
+                "icon": "home",
                 "link": "/home"
             },
             {
                 "name": "Profile",
-                "icon": "",
+                "icon": "profile",
                 "link": ""
             },
             {
                 "name": "Project",
-                "icon": "",
+                "icon": "project",
                 "link": ""
             },
             {
                 "name": "Employee",
-                "icon": "",
+                "icon": "employee",
                 "link": ""
             },
             {
                 "name": "Complaint",
-                "icon": "",
+                "icon": "complaint",
                 "link": ""
             },
             {
                 "name": "Collaboration",
-                "icon": "",
+                "icon": "collaboration",
                 "link": ""
             }
         ]
@@ -39,8 +39,8 @@
         "menus": [
             {
                 "name": "Home",
-                "icon": "",
-                "link": ""
+                "icon": "home",
+                "link": "/home"
             },
             {
                 "name": "Profile",
@@ -79,8 +79,8 @@
         "menus": [
             {
                 "name": "Home",
-                "icon": "",
-                "link": ""
+                "icon": "home",
+                "link": "/home"
             },
             {
                 "name": "Profile",

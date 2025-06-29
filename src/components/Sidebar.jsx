@@ -1,73 +1,92 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SidebarData from '../data/Sidebar.json';
 import SidebarProfile from './SidebarProfile';
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdHome, IoMdPerson, IoMdBriefcase, IoMdPeople, IoMdWarning, IoMdChatbubbles } from "react-icons/io";
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoMdHome } from 'react-icons/io';
+import { CgProfile } from 'react-icons/cg';
+import { VscProject } from 'react-icons/vsc';
+import { FaUserGroup } from 'react-icons/fa6';
+import { FaTasks } from 'react-icons/fa';
+import { FcCollaboration } from 'react-icons/fc';
+import { TbLogout2 } from "react-icons/tb";
+import { useSideBar } from '../context/Sidebarcontext';
 
-// Map icon keys to actual JSX components
+
+// Icon map (functions, not JSX)
 const iconArray = {
-    home: <IoMdHome />,
-    profile: <IoMdPerson />,
-    project: <IoMdBriefcase />,
-    employee: <IoMdPeople />,
-    complaint: <IoMdWarning />,
-    collaboration: <IoMdChatbubbles />
+    home: IoMdHome,
+    profile: CgProfile,
+    project: VscProject,
+    employee: FaUserGroup,
+    complaint: FaTasks,
+    collaboration: FcCollaboration
 };
 
 function Sidebar() {
-    const [collapsed, setCollapsed] = useState(false);
+
+    const { collapsed, toggleSidebar } = useSideBar();
+
     const defaultRole = 'EMPLOYEE';
     const role = SidebarData.find(item => item.role === defaultRole);
 
-    const toggleSidebar = () => setCollapsed(prev => !prev);
-
     return (
         <aside
-            className={`${collapsed ? 'w-[7%]' : 'w-[20%]'
-                } h-screen bg-gray-200 border-r-2 border-indigo-600 rounded-xl flex flex-col justify-between p-4 transition-all duration-300`}
+            className={`h-screen transition-all duration-300 ease-in-out bg-gradient-to-b from-indigo-100 to-indigo-200 
+                  ${collapsed ? 'w-[7%]' : 'w-[18%]'} border-r-2 border-indigo-500 shadow-xl flex flex-col justify-between rounded-tr-3xl rounded-br-3xl`}
         >
-            {/* Hamburger Toggle */}
-            <div className="flex justify-end mb-4">
-                <button onClick={toggleSidebar}>
-                    <GiHamburgerMenu className="text-[28px] text-indigo-600" />
-                </button>
-            </div>
+            {/* Top Section */}
+            <div className="p-4">
+                <div className="flex justify-between items-center mb-4">
+                    {!collapsed && <h1 className="text-xl font-bold text-indigo-600">COllabouration</h1>}
+                    <button onClick={toggleSidebar} aria-label="Toggle sidebar">
+                        <GiHamburgerMenu className="text-[26px] text-indigo-600" />
+                    </button>
+                </div>
 
-            {/* Profile and Navigation */}
-            <div>
-                {!collapsed && <SidebarProfile name="Animesh Karan" role="EMPLOYEE" />}
+                {/* Profile */}
+                {collapsed ? (
+                    <SidebarProfile />
+                ) : (
+                    <SidebarProfile name="Animesh Karan" role="EMPLOYEE" />
+                )
+                }
 
-                <nav className="flex flex-col gap-3 mt-6">
-                    {role?.menus.map((menu, index) => (
-                        <NavLink
-                            to={menu.link}
-                            key={index}
-                            className={({ isActive }) =>
-                                `flex items-center gap-3 px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 ${isActive
-                                    ? 'bg-indigo-500 text-white shadow-md'
-                                    : 'text-indigo-700 hover:bg-indigo-100 hover:border-r-4 hover:border-indigo-500 flex items-center justify-center'
-                                }`
-                            }
-                            title={collapsed ? menu.name : undefined}
-                        >
-                            <span className="text-[20px] flex items-center justify-center">
-                                {iconArray[menu.icon] || <IoMdHome />}
-                            </span>
-                            {!collapsed && <span>{menu.name}</span>}
-                        </NavLink>
-                    ))}
+                {/* Navigation */}
+                <nav className="mt-6 flex flex-col gap-2">
+                    {role?.menus.map((menu, index) => {
+                        const Icon = iconArray[menu.icon] || IoMdHome;
+                        return (
+                            <NavLink
+                                to={menu.link}
+                                key={index}
+                                title={collapsed ? menu.name : ''}
+                                className={({ isActive }) =>
+                                    `group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${collapsed ? 'flex justify-center items-center' : ''}
+                                        ${isActive
+                                        ? 'bg-indigo-500 text-white shadow-lg'
+                                        : 'text-indigo-700 hover:bg-indigo-300 hover:text-white'}`
+                                }
+                            >
+                                <Icon className={`transition-all duration-200 ${collapsed ? 'text-[28px]' : 'text-[23px]'}`} />
+                                {!collapsed && <span className="font-medium text-[19px]">{menu.name}</span>}
+                            </NavLink>
+                        );
+                    })}
                 </nav>
             </div>
 
-            {/* Logout Button */}
-            <NavLink
-                to="/logout"
-                className={`${collapsed ? 'text-[0px] h-0 overflow-hidden' : 'block'
-                    } w-full bg-red-500 px-5 py-3 text-center text-white font-semibold text-[17px] rounded-xl hover:bg-red-600 hover:shadow-lg transition-all duration-200`}
-            >
-                Logout
-            </NavLink>
+            {/* Logout */}
+            <div className="p-4">
+                <NavLink
+                    to="/logout"
+                    title={collapsed ? 'Logout' : ''}
+                    className={`flex items-center justify-center gap-3 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-xl 
+                    transition-all duration-200 ${collapsed ? 'px-0' : 'px-4'}`}
+                >
+                    {!collapsed ? 'Logout' : <span className="text-[20px]"><TbLogout2 /></span>}
+                </NavLink>
+            </div>
         </aside>
     );
 }

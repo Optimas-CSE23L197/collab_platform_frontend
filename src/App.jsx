@@ -1,12 +1,14 @@
 import React from 'react'
-import Dashboard from './page/Employee/Dashboard'
-import { Route, Routes, } from 'react-router-dom'
+import AppRoutes from './routes/AppRoutes'
+import { SidebarProvider } from './context/Sidebarcontext'
 
 function App() {
   return (
-    <Routes>
-      <Route path='/home' element={<Dashboard />} />
-    </Routes>
+    <div>
+      <SidebarProvider>
+        <AppRoutes />
+      </SidebarProvider>
+    </div>
   )
 }
 
