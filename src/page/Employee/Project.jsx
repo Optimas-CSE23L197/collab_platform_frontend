@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import ProjectCard from '../../components/ProjectCard';
 
 function Project() {
-    const role = "EMPLOYEE";
+    const role = "HOD";
 
     const dummyProjects = [
         {
