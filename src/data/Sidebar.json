@@ -10,27 +10,27 @@
             {
                 "name": "Profile",
                 "icon": "profile",
-                "link": ""
+                "link": "/profile"
             },
             {
                 "name": "Project",
                 "icon": "project",
-                "link": ""
-            },
-            {
-                "name": "Employee",
-                "icon": "employee",
-                "link": ""
+                "link": "/project"
             },
             {
                 "name": "Complaint",
                 "icon": "complaint",
-                "link": ""
+                "link": "/complaint"
+            },
+            {
+                "name": "Activity",
+                "icon": "activity",
+                "link": "/activity"
             },
             {
                 "name": "Collaboration",
                 "icon": "collaboration",
-                "link": ""
+                "link": "/collaboration"
             }
         ]
     },

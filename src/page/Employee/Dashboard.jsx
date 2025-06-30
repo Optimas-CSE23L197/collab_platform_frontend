@@ -4,26 +4,22 @@ import Navbar from '../../components/Navbar';
 import Card from '../../components/Card';
 import { FaRegBuilding } from "react-icons/fa";
 import { GrDocumentText } from "react-icons/gr";
-import { FaPeopleGroup } from "react-icons/fa6";
-import { FaRegClock } from "react-icons/fa6";
+import { FaPeopleGroup, FaRegClock } from "react-icons/fa6";
 
-
-
-//json file
 import CardData from '../../data/Card.json';
-import ActivityData from '../../data/Activity.json'
+import ActivityData from '../../data/Activity.json';
 import ActivityCard from '../../components/ActivityCard';
 import RoomButton from '../../components/RoomButton';
-
+import Notification from '../../components/Notification';
 
 function Dashboard() {
 
     const IconArray = {
-        FaRegBuilding: FaRegBuilding,
-        GrDocumentText: GrDocumentText,
-        FaPeopleGroup: FaPeopleGroup,
-        FaRegClock: FaRegClock
-    }
+        FaRegBuilding,
+        GrDocumentText,
+        FaPeopleGroup,
+        FaRegClock
+    };
 
     const roomButtonTitle = [
         "Join Room",
@@ -31,17 +27,17 @@ function Dashboard() {
     ];
 
     return (
-        <div className="flex h-screen w-screen bg-gray-100 overflow-hidden">
+        <div className="relative flex h-screen w-screen bg-gray-100 overflow-hidden">
             {/* Sidebar with fixed width */}
             <Sidebar />
 
             {/* Main content area */}
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col overflow-hidden">
                 <Navbar name="Animesh Karan" />
 
                 {/* Main dashboard body */}
-                <main className="px-6 py-3 overflow-y-auto flex justify-center">
-                    <div className="w-full max-w-[1920px] flex flex-col gap-6">
+                <main className="px-4 md:px-6 py-3 overflow-y-auto flex justify-center">
+                    <div className="w-full max-w-[1920px] flex flex-col gap-6 h-full">
 
                         {/* Cards Section */}
                         <div className="flex flex-wrap justify-center gap-4">
@@ -58,23 +54,29 @@ function Dashboard() {
                         </div>
 
                         {/* Activity + Room Sections */}
-                        <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            <div className="max-h-[430px] bg-white rounded-2xl px-6 py-4 overflow-y-scroll">
+                        <section className="w-full flex flex-col lg:flex-row gap-6 h-full">
+                            {/* Activity Scrollable List */}
+                            <div className="flex-1 bg-white rounded-2xl px-6 py-4 overflow-y-auto min-h-[300px] max-h-[430px] shadow-md">
                                 {
-                                    ActivityData.map((activity, index) => (
-                                        <ActivityCard
-                                            key={index}
-                                            title={activity.title}
-                                            description={activity.description}
-                                            time={activity.timestamp}
-                                            status={activity.status}
-                                        />
-                                    ))
+                                    ActivityData.length > 0 ? (
+                                        ActivityData.map((activity, index) => (
+                                            <ActivityCard
+                                                key={index}
+                                                title={activity.title}
+                                                description={activity.description}
+                                                time={activity.time}
+                                                status={activity.status}
+                                            />
+                                        ))
+                                    ) : (
+                                        <p className="text-center text-gray-500">No recent activities</p>
+                                    )
                                 }
                             </div>
 
-                            <div className="bg-white rounded-2xl px-6 py-4 shadow-xl flex flex-col items-center justify-center gap-5 min-h-[300px]">
-                                <h2 className='font-bold text-[22px] '>Quick Actions</h2>
+                            {/* Quick Actions */}
+                            <div className="flex-1 bg-white rounded-2xl px-6 py-4 shadow-xl flex flex-col items-center justify-center gap-5 min-h-[300px]">
+                                <h2 className='font-bold text-[22px]'>Quick Actions</h2>
                                 <div className='flex items-center justify-center gap-5 flex-wrap'>
                                     {
                                         roomButtonTitle.map((title, index) => (
@@ -84,11 +86,11 @@ function Dashboard() {
                                 </div>
                             </div>
                         </section>
-
                     </div>
                 </main>
-
             </div>
+
+            {/* <Notification title={"Animesh Karan"} message={"Happy Birthday"}/> */}
         </div>
     );
 }

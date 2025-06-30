@@ -10,6 +10,7 @@ import { FaUserGroup } from 'react-icons/fa6';
 import { FaTasks } from 'react-icons/fa';
 import { FcCollaboration } from 'react-icons/fc';
 import { TbLogout2 } from "react-icons/tb";
+import { IoExtensionPuzzleOutline } from "react-icons/io5";
 import { useSideBar } from '../context/Sidebarcontext';
 
 
@@ -20,6 +21,7 @@ const iconArray = {
     project: VscProject,
     employee: FaUserGroup,
     complaint: FaTasks,
+    activity: IoExtensionPuzzleOutline,
     collaboration: FcCollaboration
 };
 
